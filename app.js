@@ -6,8 +6,10 @@ const app = express();
 const port = process.env.SERVER_PORT;
 // Importa router
 const moviesRouter = require('./routers/movies');
-// Importa middelware per gestire errori
+// Importa middelware per gestire errori 
 const handlerErr = require('./middleware/handlerErr');
+// Importa middelware per gestire le rotte inesistenti
+const checkRouteExist = require('./middleware/checkRouteExist');
 
 
 //Rende accessibile la cartella public
@@ -21,8 +23,10 @@ app.get('/', (req, res) =>{
 // Include /movies in tutte le rotte
 app.use('/movies', moviesRouter);
 
-// Utilizza il middleware
+// Utilizza i middleware
 app.use(handlerErr);
+app.use(checkRouteExist);
+
 
 // Apre la porta del server
 app.listen(port, () =>{
