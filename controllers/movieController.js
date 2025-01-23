@@ -1,3 +1,6 @@
+const connection = require('../data/db_movies')
+
+
 //rotta per prelevare tutti i film
 const index = (req, res) =>{
     console.log('sono index');
