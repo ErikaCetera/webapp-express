@@ -10,10 +10,19 @@ const moviesRouter = require('./routers/movies');
 const handlerErr = require('./middleware/handlerErr');
 // Importa middelware per gestire le rotte inesistenti
 const checkRouteExist = require('./middleware/checkRouteExist');
+// importa cors per collegame FE
+const cors = require('cors');
 
-
+//Collegmento al FE
+app.use(cors ({
+ origin: process.env.FRONTEND_URL
+})
+)
 //Rende accessibile la cartella public
 app.use(express.static('public'));
+
+//Middleware parse json
+app.use(express.json());
 
 // Rotta base
 app.get('/', (req, res) =>{

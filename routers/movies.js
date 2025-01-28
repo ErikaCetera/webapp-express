@@ -9,6 +9,10 @@ const movieController = require('../controllers/movieController');
 router.get('/', movieController.index);
 //show
 router.get('/:id', movieController.show);
+//creazione libro
+router.post('/', movieController.store);
+//creazione recensione
+router.post('/:id/reviews', movieController.storeReview);
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
 // Funzione middleware per gestire gli errori
-const handlerErr = (err, res, req, next) =>{
+const handlerErr = (err, req, res, next) =>{
     // Crea un oggetto di risposta
     const resObj = {
         status: 'fail',
